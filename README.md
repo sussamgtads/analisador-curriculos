@@ -7,6 +7,7 @@ Site estático onde a pessoa sobe um currículo em PDF ou DOCX e recebe:
 - chance de o texto ter sido gerado por IA, com os trechos suspeitos
 - nome, e-mail e telefone do candidato
 - veredito: vale a pena conversar ou não, com perguntas para a conversa
+- **aderência à vaga** (opcional): o RH escreve os requisitos e a IA cruza com o currículo, listando o que atende, o que atende em parte e o que não atende. Requisitos discriminatórios (idade, gênero, etc.) são filtrados no workflow e ignorados.
 
 Frontend em HTML/JS puro (GitHub Pages) + backend em **n8n** que extrai o texto do PDF e chama a **OpenAI**.
 

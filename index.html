@@ -17,6 +17,7 @@ h1{font-size:1.7rem;margin:0 0 4px}
 #drop{border:2px dashed var(--line);border-radius:14px;padding:36px 16px;text-align:center;cursor:pointer;transition:.15s}
 #drop.over,#drop:hover{border-color:var(--ac);background:color-mix(in srgb,var(--ac) 6%,transparent)}
 #drop b{color:var(--ac)}
+textarea{width:100%;margin-top:6px;font:inherit;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:10px 12px;resize:vertical}
 button{font:inherit;font-weight:600;background:var(--ac);color:#fff;border:0;border-radius:10px;padding:11px 20px;cursor:pointer}
 button:disabled{opacity:.5;cursor:not-allowed}
 button.ghost{background:transparent;color:var(--ac);border:1px solid var(--line)}
@@ -55,6 +56,8 @@ blockquote{margin:8px 0;padding:8px 12px;border-left:3px solid var(--warn);backg
       <p class="mut" id="fname" style="margin:6px 0 0">PDF (inclusive escaneado) ou DOCX, até 5 MB</p>
     </div>
     <input id="file" type="file" accept=".pdf,.docx,application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document" class="hidden">
+    <label for="req" style="display:block;margin-top:16px;font-weight:600">Requisitos da vaga <span class="mut" style="font-weight:400">(opcional)</span></label>
+    <textarea id="req" maxlength="3000" rows="4" placeholder="Ex.: 3+ anos com marketing digital, Google Ads, inglês intermediário, experiência em e-commerce, disponibilidade para trabalho híbrido em SP"></textarea>
     <div class="row">
       <button id="go" disabled>Analisar currículo</button>
       <span id="status" class="mut"></span>
@@ -77,6 +80,12 @@ blockquote{margin:8px 0;padding:8px 12px;border-left:3px solid var(--warn);backg
     <div class="grid">
       <div class="card pos"><h3>Pontos positivos</h3><ul id="pos"></ul></div>
       <div class="card neg"><h3>Pontos negativos</h3><ul id="neg"></ul></div>
+    </div>
+    <div class="card hidden" id="fit"><h3>Aderência à vaga</h3>
+      <div class="bar" id="fitBar"><i id="fitFill"></i></div>
+      <p id="fitTxt" style="margin:0 0 10px"></p>
+      <div class="grid"><div><h3 style="color:var(--ok)">Atende</h3><ul id="fitOk"></ul></div>
+      <div><h3 style="color:var(--warn)">Parcialmente</h3><ul id="fitMid"></ul><h3 style="color:var(--bad);margin-top:14px">Não atende</h3><ul id="fitNo"></ul></div></div>
     </div>
     <div class="card"><h3>Conteúdo gerado por IA</h3>
       <div class="bar" id="aiBar"><i id="aiFill"></i></div>
